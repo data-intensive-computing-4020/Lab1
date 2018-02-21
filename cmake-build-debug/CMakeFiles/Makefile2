@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/chris/temp/Lab1
 CMAKE_BINARY_DIR = /home/chris/temp/Lab1/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/Lab1.dir
+# Target rules for target CMakeFiles/project_name.dir
 
 # All Build rule for target.
-CMakeFiles/Lab1.dir/all:
-	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/depend
-	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chris/temp/Lab1/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Lab1"
-.PHONY : CMakeFiles/Lab1.dir/all
+CMakeFiles/project_name.dir/all:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/depend
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/chris/temp/Lab1/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target project_name"
+.PHONY : CMakeFiles/project_name.dir/all
 
 # Include target in all.
-all: CMakeFiles/Lab1.dir/all
+all: CMakeFiles/project_name.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Lab1.dir/rule: cmake_check_build_system
+CMakeFiles/project_name.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/temp/Lab1/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Lab1.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/project_name.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/temp/Lab1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Lab1.dir/rule
+.PHONY : CMakeFiles/project_name.dir/rule
 
 # Convenience name for target.
-Lab1: CMakeFiles/Lab1.dir/rule
+project_name: CMakeFiles/project_name.dir/rule
 
-.PHONY : Lab1
-
-# clean rule for target.
-CMakeFiles/Lab1.dir/clean:
-	$(MAKE) -f CMakeFiles/Lab1.dir/build.make CMakeFiles/Lab1.dir/clean
-.PHONY : CMakeFiles/Lab1.dir/clean
+.PHONY : project_name
 
 # clean rule for target.
-clean: CMakeFiles/Lab1.dir/clean
+CMakeFiles/project_name.dir/clean:
+	$(MAKE) -f CMakeFiles/project_name.dir/build.make CMakeFiles/project_name.dir/clean
+.PHONY : CMakeFiles/project_name.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/project_name.dir/clean
 
 .PHONY : clean
 
