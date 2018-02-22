@@ -70,3 +70,5 @@ fabric.properties
 
 #also want to ignore the build folder
 cmake-build-debug
+.idea
+*.out
