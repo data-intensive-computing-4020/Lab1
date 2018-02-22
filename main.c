@@ -137,17 +137,16 @@ void firstProcedure(int N, int *A, int D[]) {
 //reference, this function can be a void and operate directly on the original memory alocated to the array
 void secondProcedure(int N, int *A, int D[]) {
     int _numberOfElements = numberOfElements(N, D);
-    int numberOfBlocksToChange = ceil(_numberOfElements * 0.1); //we cast this statically to an int
     int numberOfBlockesChanged = 0;
-    while (numberOfBlockesChanged != numberOfBlocksToChange) {
-        int randomPos = rand() % _numberOfElements;
-        if(A[randomPos]!=0){ //if the value has been assigned already, we must not change it
-            continue;
-        }
-        A[randomPos] = 1;
+    int iterator = 0;
+
+    while(iterator < _numberOfElements){
+        A[iterator] = 1;
+        iterator += 10;
         numberOfBlockesChanged++;
     }
-    printf("**Second procedure set %d elements to 1 ***\n", numberOfBlocksToChange);
+
+    printf("**Second procedure set %d elements to 1 ***\n", numberOfBlockesChanged);
 }
 
 //This function prints a random 5% of all elements, with their value and coordinate. It ensures that the same element is
@@ -189,30 +188,40 @@ int main() {
     srand(time(NULL));   // generate random seed to fill normally distributed number of values
     printHeader();
 
-    int numberOfDimensions; //stores the number of dimensions
-    printf("\nEnter the number of dimensions to generate: ");
-    scanf("%d", &numberOfDimensions);
+    char response = ' ';
+
+    do{
+        int numberOfDimensions; //stores the number of dimensions
+        printf("\nEnter the number of dimensions to generate: ");
+        scanf("%d", &numberOfDimensions);
 
 
-    printf("Enter the size of each dimension:\n");
+        printf("Enter the size of each dimension:\n");
 
-    int *sizeArray;
-    sizeArray = malloc(numberOfDimensions * sizeof(int));
+        int *sizeArray;
+        sizeArray = malloc(numberOfDimensions * sizeof(int));
 
-    for (int i = 0; i < numberOfDimensions; i++) {
-        printf("Dimension %d: ", i);
-        scanf("%d", &sizeArray[i]);
+        for (int i = 0; i < numberOfDimensions; i++) {
+            printf("Dimension %d: ", i);
+            scanf("%d", &sizeArray[i]);
+        }
+        printStarRow();
+        printf("Total number of dimensions: %d \nTotal number of elements: %d \n", numberOfDimensions,
+            numberOfElements(numberOfDimensions, sizeArray));
+
+        int *storageArray = allocateArray(numberOfDimensions, sizeArray);
+        printStarRow();
+        printf("\n");
+        firstProcedure(numberOfDimensions, storageArray, sizeArray);
+        printf("\n");
+        secondProcedure(numberOfDimensions, storageArray, sizeArray);
+        printf("\n");
+        thirdProcedure(numberOfDimensions, storageArray, sizeArray);
+
+        printf("Would you like to enter another array? [y/n]\n");
+        scanf(" %c", &response);
+
     }
-    printStarRow();
-    printf("Total number of dimensions: %d \nTotal number of elements: %d \n", numberOfDimensions,
-           numberOfElements(numberOfDimensions, sizeArray));
-
-    int *storageArray = allocateArray(numberOfDimensions, sizeArray);
-    printStarRow();
-    printf("\n");
-    firstProcedure(numberOfDimensions, storageArray, sizeArray);
-    printf("\n");
-    secondProcedure(numberOfDimensions, storageArray, sizeArray);
-    printf("\n");
-    thirdProcedure(numberOfDimensions, storageArray, sizeArray);
+    while (response != 'n');
+    
 }
