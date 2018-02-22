@@ -9,3 +9,18 @@ This program has 3 functions that work on a K-dimensional array. Each function t
 As the input array is not static, that is the array does not have the same defined dimensions on every code execution, it is tedious to continually loop through the array to access the elements at specific positions. However, arrays, regardless of dimension, are stored contiguously in memory. In the C programming language, this is stored using a row major order. 
 
 By transforming the index of the K-dimension array into a 1-dimension co-ordinate system, any element can be accessed easily and trivially, eliminating the need for multiple loops.    
+
+#### Installation instructions
+
+In a terminal:
+
+```bash
+# Clone the Repo
+git clone https://github.com/data-intensive-computing-4020/Lab1.git
+
+# Compile main.c
+gcc -o main main.c 
+
+# Run the executable 
+./main
+```
