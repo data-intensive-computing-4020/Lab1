@@ -1,0 +1,98 @@
+% General Notes for the project
+% 4 pages max
+
+%First let me write out all the sections in the report and then start filling everything in 
+
+
+\documentclass[10pt,onecolumn]{article}
+\usepackage[utf8]{inputenc}
+ 
+\pagenumbering{arabic}
+\usepackage{KJN}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{adjustbox}
+\usepackage{tablefootnote}
+\usepackage{mathtools}
+
+
+\def\@maketitle{%
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}% <------
+        \@author%            <------ Authors
+      \end{tabular}\par}%    <------
+    \vskip 1em%
+  %  {\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+
+
+
+\title{\vspace{-3.0cm} \textbf{ELEN4020: Data Intensive Computing \\ Laboratory Exercise 1}}
+\author{\begin{tabular}{ll}
+  Kavilan Nair & 1076342 \\
+  Christopher Maree & 1101946 \\
+  Iordan Tchaparov &  1068874 \\
+  Laura West & 1084327\\
+  %\textbf{Working Group:} & Member 1 \\ & Member 2 \\ & Member 3
+\end{tabular}}
+
+
+\begin{document}
+%\centering
+%\title{\Large{\textbf{ ELEN4020: Data Intensive Computing \\ Laboratory Exercise 1: K-Dimensional Integer Arrays }}}
+%\author{Kavilan Nair - 1076342 \\ Iordan Tchaparov - 1068874\\ Christopher Maree - 1101946  \\ Laura West - 1084327 \\ 22/02/2018}
+
+
+
+\maketitle
+
+
+
+  
+  
+
+
+
+
+\maketitle
+\thispagestyle{empty}\pagestyle{empty}
+
+
+\vspace{-3mm}
+
+
+
+\section*{K-Dimensional Integer Array}
+A commonly used approach for accessing elements in a multidimensional array involves iterating with a number of nested loops. The number of loops required is the same as the number of dimensions the array has. This approach is computationally expensive but allows accessing the elements of a static array. Adapting this method for dynamic arrays raises the computation time and space complexity and is difficult to implement.\\
+
+Arrays, regardless of dimension, are stored contiguously in computer memory. In the C programming language, this is stored using a row major order. By transforming the K co-ordinates of the K-dimensional array into a 1-dimensional co-ordinate system, any element can be accessed using a pointer, eliminating the need for multiple loops.\\
+
+The user is prompted to enter the number of dimensions and the size of each dimension. The array is then initialized with these parameters. Thereafter, procedures one, two and three are called. 
+
+\subsection*{Procedure one}
+Procedure one initializes all the elements in the array to zero. This is achieved by iterating through the one dimensional co-ordinate system and setting each element to zero. 
+
+\subsection*{Procedure two}
+Ten percent of the elements in the array are set to 1. The total number of elements is calculated by multiplying the bounds for each dimension. Every tenth element in the array is set to one, starting at the first element in the array until the number of elements in the array are exceeded. As a result, if ten percent of the total number of elements in the array is not an integer, this number is rounded up. For example a 7x7 array with 49 elements will have 5 elements uniformly set to one.
+
+\subsection*{Procedure three}
+This function prints the value and co-ordinate of 5\% of all elements. The element indices are chosen in a uniform and random fashion. The function also ensures that the same element is not printed two times. The total number of elements in the array is calculated and a variable is assigned to 5\% of this number. If the variable is not an integer, it is rounded up. An array, printedValues, is created that will later store the indices that are generated, its elements are initialized to -1. Random numbers within the bounds of the K-dimensional array are assigned using a random number generator that is seeded by time. These numbers are converted to the K-dimensional co-ordinates using the getLocation() function (see section explaining). Each randomly generated number is compared to all the numbers stored within the printedValues array, if any number has been generated previously, a new random number is generated. \\
+
+\subsection*{getLocation()}
+The getLocation() function takes in three parameters, namely the number of dimensions, an array storing the size of each dimension and the linear location. The index of the Kth dimension is calculated by modding the linear position by the size of the Kth dimension. The linear position is then divided by the size of the Kth dimension. This process is then repeated, decrementing K with each iteration until K co-ordinates have been obtained. \\
+
+
+
+\end{document}
+
+
