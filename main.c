@@ -130,7 +130,7 @@ void firstProcedure(int N, int *A, int D[]) {
     for (int i = 0; i < _numberOfElements; i++) {
         A[i] = 0;
     }
-    printf("***First Procedure** set %d elements to 0***\n",_numberOfElements);
+    printf("***First Procedure** set %d elements to 0***\n", _numberOfElements);
 }
 
 //This is the second procedure that sets 10% of all the elements in the array to a 1. As the array is passed in by
@@ -140,7 +140,7 @@ void secondProcedure(int N, int *A, int D[]) {
     int numberOfBlockesChanged = 0;
     int iterator = 0;
 
-    while(iterator < _numberOfElements){
+    while (iterator < _numberOfElements) {
         A[iterator] = 1;
         iterator += 10;
         numberOfBlockesChanged++;
@@ -156,32 +156,32 @@ void thirdProcedure(int N, int *A, int D[]) {
     int numberOfElementsToCheck = ceil(_numberOfElements * 0.05); //we cast this statically to an int
     int numberOfElementsChecked = 0;
     int printedValues[numberOfElementsToCheck]; //an array to store the indecies that have been printed
-    for (int i =0; i <numberOfElementsToCheck;i++){
-        printedValues[i]=-1;
+    for (int i = 0; i < numberOfElementsToCheck; i++) {
+        printedValues[i] = -1;
     }
     bool dropLoop = false;
     while (numberOfElementsChecked != numberOfElementsToCheck) {
         int randomPos = rand() % _numberOfElements;
         // we need to check if the location has been printed before.
-        for (int i=0; i< numberOfElementsToCheck;i++){
-            if(printedValues[i]==randomPos){ //if it has, set the boolean and drop out of this loop
-                dropLoop=true;
+        for (int i = 0; i < numberOfElementsToCheck; i++) {
+            if (printedValues[i] == randomPos) { //if it has, set the boolean and drop out of this loop
+                dropLoop = true;
                 break;
             }
         }
-        if(dropLoop==true){ //continue in the while loop to generate a new random value
-            dropLoop=false;
+        if (dropLoop == true) { //continue in the while loop to generate a new random value
+            dropLoop = false;
             continue;
         }
         //set the element that has been printed, at the location of the current number printed, to the random position
-        printedValues[numberOfElementsChecked]=randomPos;
+        printedValues[numberOfElementsChecked] = randomPos;
         numberOfElementsChecked++;
         printf("Random element chosen at location: ");
         int *coordArray = getLocation(N, D, randomPos);
         printArray(coordArray, N);
         printf(" with a value of: %d \n", A[randomPos]);
     }
-    printf("\n***Third procedure printed %d values and locations*** \n", numberOfElementsToCheck );
+    printf("\n***Third procedure printed %d values and locations*** \n", numberOfElementsToCheck);
 }
 
 int main() {
@@ -190,7 +190,7 @@ int main() {
 
     char response = ' ';
 
-    do{
+    do {
         int numberOfDimensions; //stores the number of dimensions
         printf("\nEnter the number of dimensions to generate: ");
         scanf("%d", &numberOfDimensions);
@@ -207,7 +207,7 @@ int main() {
         }
         printStarRow();
         printf("Total number of dimensions: %d \nTotal number of elements: %d \n", numberOfDimensions,
-            numberOfElements(numberOfDimensions, sizeArray));
+               numberOfElements(numberOfDimensions, sizeArray));
 
         int *storageArray = allocateArray(numberOfDimensions, sizeArray);
         printStarRow();
@@ -221,7 +221,5 @@ int main() {
         printf("Would you like to enter another array? [y/n]\n");
         scanf(" %c", &response);
 
-    }
-    while (response != 'n');
-    
+    } while (response != 'n');
 }
