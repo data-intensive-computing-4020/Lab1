@@ -146,7 +146,7 @@ void secondProcedure(int N, int *A, int D[]) {
         numberOfBlockesChanged++;
     }
 
-    printf("**Second procedure set %d elements to 1 ***\n", numberOfBlockesChanged);
+    printf("***Second procedure set %d elements to 1 ***\n", numberOfBlockesChanged);
 }
 
 //This function prints a random 5% of all elements, with their value and coordinate. It ensures that the same element is
@@ -159,7 +159,7 @@ void thirdProcedure(int N, int *A, int D[]) {
     for (int i =0; i <numberOfElementsToCheck;i++){
         printedValues[i]=-1;
     }
-    bool dropLoop =false;
+    bool dropLoop = false;
     while (numberOfElementsChecked != numberOfElementsToCheck) {
         int randomPos = rand() % _numberOfElements;
         // we need to check if the location has been printed before.
@@ -181,7 +181,7 @@ void thirdProcedure(int N, int *A, int D[]) {
         printArray(coordArray, N);
         printf(" with a value of: %d \n", A[randomPos]);
     }
-    printf("***Third procedure printed %d values and locations*** \n", numberOfElementsToCheck );
+    printf("\n***Third procedure printed %d values and locations*** \n", numberOfElementsToCheck );
 }
 
 int main() {
