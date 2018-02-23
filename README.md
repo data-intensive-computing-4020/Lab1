@@ -8,7 +8,7 @@ This program has 3 functions that work on a K-dimensional array. Each function t
 
 The elements in arrays are usually accessed through the use of loops. As the input array is not static in this program, that is the array does not have the same defined dimensions on every input, it is computationally expensive to continually loop through the array accodring to the number of dimensions it has. However, arrays, regardless of dimension, are stored contiguously in memory. In the C programming language, this is stored using a row major order. By transforming the K co-ordinates of a K-dimensional array into a 1-dimensional co-ordinate system, any element can be accessed using a pointer, eliminating the need for multiple loops.    
 
-#### Installation instructions
+### Installation instructions
 
 In a terminal:
 
@@ -22,3 +22,6 @@ gcc -o main main.c
 # Run the executable 
 ./main
 ```
+### Documentation
+
+The description and explanation of our code can be found in the documentation folder. Both the .tex and .pdf are included. 
